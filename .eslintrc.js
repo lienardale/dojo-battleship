@@ -2,18 +2,18 @@ module.exports = {
   root: true,
   env: {
     node: true,
-    browser: true
+    browser: true,
   },
   parserOptions: {
     parser: "babel-eslint",
-    sourceType: "module"
+    sourceType: "module",
   },
   extends: [
     "prettier",
     "eslint:recommended",
     "plugin:vue/recommended",
-    'plugin:prettier/recommended',
-    'prettier/vue'
+    "plugin:prettier/recommended",
+    "prettier/vue",
   ],
   plugins: ["prettier"],
   rules: {
@@ -21,5 +21,5 @@ module.exports = {
     "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
     "prettier/prettier": "error",
     "no-unused-vars": process.env.NODE_ENV === "production" ? "error" : "off",
-  }
+  },
 };
