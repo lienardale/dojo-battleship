@@ -1,14 +1,5 @@
-<script setup>
-import BattleBoard from "./components/BattleBoard.vue";
-</script>
-
 <template>
-
   <main>
-
-    <BattleBoard />
-
+    <div>Battleship</div>
   </main>
-
 </template>
-
