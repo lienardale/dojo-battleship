@@ -1,11 +1,14 @@
-<template>
-  <div id="app"></div>
-</template>
-
-<script>
-export default {
-  name: "App"
-};
+<script setup>
+import BattleBoard from "./components/BattleBoard.vue";
 </script>
 
-<style lang="scss" scoped></style>
+<template>
+
+  <main>
+
+    <BattleBoard />
+
+  </main>
+
+</template>
+
