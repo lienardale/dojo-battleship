@@ -4,7 +4,7 @@ const SHIPS = {
   Battleship: 4,
   Cruiser: 3,
   Submarine: 3,
-  Destroyer: 2
+  Destroyer: 2,
 };
 const DIRECTIONS = ["up", "down", "left", "right"];
 
@@ -29,11 +29,11 @@ export function generateRandomAssets() {
       shipName,
       boardCells
     );
-    // TODO what happend if no board is found ?
+    // TODO what happened if no board is found ?
     boardCells = { ...boardCells, ...newShipCells };
     boats[shipName] = {
       nbOfAliveCells: Object.keys(newShipCells).length,
-      cells: Object.keys(newShipCells)
+      cells: Object.keys(newShipCells),
     };
     boats.aliveShipsCount += 1;
   });
