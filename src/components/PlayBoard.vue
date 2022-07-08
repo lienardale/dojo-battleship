@@ -6,10 +6,10 @@
     <div class="title">{{ title }}</div>
     <div class="grid-container">
       <div class="line" v-for="column in columnsCount" :key="column">
-        <div class="cell" v-for="row in rowsCount" :key="row">
-          <!-- {{ row }} -->
-          <div :class="boardCells[getCellStatus(row,column)]">
-          </div>
+		<div class='cell' :class="[ !boardCells['A1'] ? '' : getCellStatus(row,column) ]" v-for="row in rowsCount" :key="row">
+        	<!-- <div :class="[ !boardCells['A1'] ? '' : getCellStatus(row,column) ]">
+			</div> -->
+           <!-- {{ row }} -->
         </div>
       </div>
     </div>
@@ -31,8 +31,7 @@ export default {
   },
   methods: {
     getCellStatus(row, column) {
-      // console.log(boardCells)
-      return getCell(row, column)
+      return this.boardCells[getCell(row, column)].status
     }
   },
 };
