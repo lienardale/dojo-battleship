@@ -14,11 +14,11 @@ export default {
     };
   },
   methods: {
-    setAssets(boardCells, boats) {
-      generateRandomAssets(boardCells, boats);
+    setAssets() {
+      this.playerAssets = generateRandomAssets();
     },
     startGame(event) {
-      this.setAssets(event.boardCells, event.boats);
+      this.setAssets();
       console.log(this.playerAssets)
     },
   },
@@ -29,7 +29,8 @@ export default {
   <div class="battle-board">
     <div class="title">Battleship</div>
   </div>
-  <PlayBoard title="Player" :rowsCount="10" :columnsCount="10" :player />
+  <PlayBoard title="Player" :rowsCount="10" :columnsCount="10" :boardCells=playerAssets.boardCells />
+  <button @click="startGame()">startGame</button>
 </template>
 
 <style lang="scss" scoped>
