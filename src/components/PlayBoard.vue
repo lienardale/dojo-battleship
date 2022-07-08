@@ -1,14 +1,12 @@
 <template>
   <div>
-    <p>{{ title }} {{ rowsCount }}x{{ columnsCount }}</p>
+    <p>{{ title }} {{ rowsCount }}x{{ columnsCount }} : {{ shouldDisplayShips }}</p>
   </div>
   <div class="playboard">
     <div class="title">{{ title }}</div>
     <div class="grid-container">
       <div class="line" v-for="column in columnsCount" :key="column">
-		<div class='cell' :class="[ !boardCells['A1'] ? '' : getCellStatus(row,column) ]" v-for="row in rowsCount" :key="row">
-        	<!-- <div :class="[ !boardCells['A1'] ? '' : getCellStatus(row,column) ]">
-			</div> -->
+		<div class='cell' :class="[ !boardCells['A1'] ? '' : shouldDisplayShips === false ? getCellStatus(row,column) + 'hidden' : getCellStatus(row,column) ]" v-for="row in rowsCount" :key="row">
            <!-- {{ row }} -->
         </div>
       </div>
@@ -28,6 +26,10 @@ export default {
       default: {},
       type: Object,
     },
+	shouldDisplayShips: {
+	  default: true,
+	  type: Boolean
+	},
   },
   methods: {
     getCellStatus(row, column) {

@@ -11,11 +11,16 @@ export default {
         boats: {},
       },
       gameStarted: false,
+	  IAAssets: {
+        boardCells: {},
+        boats: {},
+	  },
     };
   },
   methods: {
     setAssets() {
       this.playerAssets = generateRandomAssets();
+	  this.IAAssets = generateRandomAssets();
     },
     startGame(event) {
       this.setAssets();
@@ -28,9 +33,12 @@ export default {
 <template>
   <div class="battle-board">
     <div class="title">Battleship</div>
+  <div class="board-container">
+    <PlayBoard title="Player" :rowsCount="10" :columnsCount="10" :boardCells=playerAssets.boardCells :shouldDisplayShips="true" />
+    <PlayBoard title="IA" :rowsCount="10" :columnsCount="10" :boardCells=IAAssets.boardCells :shouldDisplayShips="false" />
+    <button @click="startGame()">startGame</button>
   </div>
-  <PlayBoard title="Player" :rowsCount="10" :columnsCount="10" :boardCells=playerAssets.boardCells />
-  <button @click="startGame()">startGame</button>
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -42,4 +50,11 @@ export default {
 .battle-board {
   padding: 30px;
 }
+
+.boards-container {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
+}
+
 </style>
