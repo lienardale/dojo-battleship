@@ -8,7 +8,7 @@
       <div class="line" v-for="column in columnsCount" :key="column">
         <div class="cell" v-for="row in rowsCount" :key="row">
           <!-- {{ row }} -->
-          <div :class="getCellStatus(row,column)">
+          <div :class="boardCells[getCellStatus(row,column)]">
           </div>
         </div>
       </div>
@@ -31,6 +31,7 @@ export default {
   },
   methods: {
     getCellStatus(row, column) {
+      // console.log(boardCells)
       return getCell(row, column)
     }
   },
