@@ -39,3 +39,5 @@ yarn test:unit
 ```sh
 yarn lint
 ```
+
+https://trello.com/b/3zvptS0S/alienard-theodo-battleship-trello
